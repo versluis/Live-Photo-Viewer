@@ -11,7 +11,9 @@
 @import PhotosUI;
 @import MobileCoreServices;
 
-@interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, PHLivePhotoViewDelegate>
+
+@property BOOL livePhotoIsAnimating;
 
 @end
 
@@ -50,6 +52,11 @@
     // grab a reference to our Photo View
     PHLivePhotoView *photoView = [self.view viewWithTag:87];
     
+    // if we're currently animating, ignore this request
+    if (self.livePhotoIsAnimating) {
+        return;
+    }
+    
     // play short "hint" animation
     [photoView startPlaybackWithStyle:PHLivePhotoViewPlaybackStyleHint];
 }
@@ -58,6 +65,11 @@
     
     // grab a reference to our Photo View
     PHLivePhotoView *photoView = [self.view viewWithTag:87];
+    
+    // if we're currently animating, ignore this request
+    if (self.livePhotoIsAnimating) {
+        return;
+    }
     
     // play full animation
     [photoView startPlaybackWithStyle:PHLivePhotoViewPlaybackStyleFull];
@@ -69,6 +81,12 @@
     
     // dismiss the picker
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // if we have a live photo view already, remove it
+    if ([self.view viewWithTag:87]) {
+        UIView *subview = [self.view viewWithTag:87];
+        [subview removeFromSuperview];
+    }
     
     // check if this is a Live Image, otherwise present a warning
     PHLivePhoto *photo = [info objectForKey:UIImagePickerControllerLivePhoto];
@@ -106,6 +124,18 @@
     // and display it
     [self presentViewController:alert animated:YES completion:nil];
     
+}
+
+# pragma mark - Live Photo View Delegate
+
+- (void)livePhotoView:(PHLivePhotoView *)livePhotoView willBeginPlaybackWithStyle:(PHLivePhotoViewPlaybackStyle)playbackStyle {
+    
+    self.livePhotoIsAnimating = YES;
+}
+
+- (void)livePhotoView:(PHLivePhotoView *)livePhotoView didEndPlaybackWithStyle:(PHLivePhotoViewPlaybackStyle)playbackStyle {
+    
+    self.livePhotoIsAnimating = NO;
 }
 
 @end
