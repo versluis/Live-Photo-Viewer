@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9052" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Yg-Pu-yQ8">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9040"/>
     </dependencies>
     <scenes>
@@ -15,10 +16,32 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QvI-57-rnP">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Animate Hint" id="CjJ-QJ-HDQ">
+                                        <connections>
+                                            <action selector="playHint:" destination="BYZ-38-t0r" id="HzL-K6-gfY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fsA-U4-4MX"/>
+                                    <barButtonItem title="Animate Full" id="C5U-y2-qRk">
+                                        <connections>
+                                            <action selector="playFullAnimation:" destination="BYZ-38-t0r" id="uI1-py-qjf"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QvI-57-rnP" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Uqp-2r-UqW"/>
+                            <constraint firstItem="QvI-57-rnP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bXH-g0-wsS"/>
+                            <constraint firstAttribute="trailing" secondItem="QvI-57-rnP" secondAttribute="trailing" id="sPQ-rD-aSZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Live Photo Viewer" id="Tfv-CQ-MGw">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="AM6-qg-OSS"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="7wf-3c-YAw">
                             <connections>
                                 <action selector="grabLivePhoto:" destination="BYZ-38-t0r" id="eTr-jg-uBC"/>

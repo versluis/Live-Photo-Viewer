@@ -45,6 +45,24 @@
     
 }
 
+- (IBAction)playHint:(id)sender {
+    
+    // grab a reference to our Photo View
+    PHLivePhotoView *photoView = [self.view viewWithTag:87];
+    
+    // play short "hint" animation
+    [photoView startPlaybackWithStyle:PHLivePhotoViewPlaybackStyleHint];
+}
+
+- (IBAction)playFullAnimation:(id)sender {
+    
+    // grab a reference to our Photo View
+    PHLivePhotoView *photoView = [self.view viewWithTag:87];
+    
+    // play full animation
+    [photoView startPlaybackWithStyle:PHLivePhotoViewPlaybackStyleFull];
+}
+
 # pragma mark - Image Picker Delegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
@@ -63,9 +81,11 @@
     PHLivePhotoView *photoView = [[PHLivePhotoView alloc]initWithFrame:self.view.bounds];
     photoView.livePhoto = [info objectForKey:UIImagePickerControllerLivePhoto];
     photoView.contentMode = UIViewContentModeScaleAspectFit;
+    photoView.tag = 87;
     
     // bring up the Live Photo View
     [self.view addSubview:photoView];
+    [self.view sendSubviewToBack:photoView];
     
 }
 
