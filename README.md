@@ -1,5 +1,5 @@
 # Live Photo Viewer
-iOS 9 Project demonstrating how to animate Live Photos in view
+iOS 9 Project demonstrating how to animate Live Photos in view.
 
 This demo brings up an image picker from which you can select Live Photos. Choosing a non-Live-Photo will bring up an alert.
 
