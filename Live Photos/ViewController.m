@@ -52,8 +52,9 @@
     // grab a reference to our Photo View
     PHLivePhotoView *photoView = [self.view viewWithTag:87];
     
-    // if we're currently animating, ignore this request
+    // if we're currently animating, stop and ignore this request
     if (self.livePhotoIsAnimating) {
+        [photoView stopPlayback];
         return;
     }
     
@@ -66,8 +67,9 @@
     // grab a reference to our Photo View
     PHLivePhotoView *photoView = [self.view viewWithTag:87];
     
-    // if we're currently animating, ignore this request
+    // if we're currently animating, stop and ignore this request
     if (self.livePhotoIsAnimating) {
+        [photoView stopPlayback];
         return;
     }
     
@@ -115,7 +117,7 @@
 - (void)notLivePhotoWarning {
     
     // create an alert view
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Not a Live Photo" message:@"Sadly this is a standard image so we can't show it in our Live Photo VIew. \n\nSorry :-(" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Not a Live Photo" message:@"Sadly this is a standard image so we can't show it in our Live Photo View. \n\nSorry :-(" preferredStyle:UIAlertControllerStyleAlert];
     
     // add a single action
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
