@@ -500,6 +500,7 @@
 				D2284E131BBCAA73009F8450 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D2284E141BBCAA73009F8450 /* Build configuration list for PBXNativeTarget "Live PhotosTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +509,7 @@
 				D2284E161BBCAA73009F8450 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D2284E171BBCAA73009F8450 /* Build configuration list for PBXNativeTarget "Live PhotosUITests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +518,7 @@
 				D2284E191BBCAA73009F8450 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
