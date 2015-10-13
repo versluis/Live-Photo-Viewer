@@ -47,6 +47,28 @@
     
 }
 
+- (IBAction)shareLivePhoto:(id)sender {
+
+    // share the Live Photo using an Activity View Controller
+    
+    // if we don't have a photo view, present warning and return
+    if (![self.view viewWithTag:87]) {
+        [self cannotShareLivePhotoWarning];
+        return;
+    }
+    
+    // grab a reference to the Photo View and Live Photo
+    PHLivePhotoView *photoView = (PHLivePhotoView *)[self.view viewWithTag:87];
+    PHLivePhoto *livePhoto = photoView.livePhoto;
+    
+    // build an activity view controller
+    UIActivityViewController *activityView = [[UIActivityViewController alloc]initWithActivityItems:@[livePhoto] applicationActivities:nil];
+    [self presentViewController:activityView animated:YES completion:^{
+        // let's see if we need to do anything here
+        NSLog(@"Activity View Controller has finidhed.");
+    }];
+}
+
 - (IBAction)playHint:(id)sender {
     
     // grab a reference to our Photo View
@@ -117,15 +139,28 @@
 - (void)notLivePhotoWarning {
     
     // create an alert view
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Not a Live Photo" message:@"Sadly this is a standard image so we can't show it in our Live Photo View. \n\nSorry :-(" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Not a Live Photo" message:@"Sadly this is a standard UIImage so we can't show it in our Live Photo View. Try another one." preferredStyle:UIAlertControllerStyleAlert];
     
     // add a single action
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Thanks, Phone!" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:action];
     
     // and display it
     [self presentViewController:alert animated:YES completion:nil];
     
+}
+
+- (void)cannotShareLivePhotoWarning {
+    
+    // create an alert view
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Live Photo to share" message:@"There's nothing showing in the Live Photo View, so you can't share anything. Pick a Live Photo first and try again." preferredStyle:UIAlertControllerStyleAlert];
+    
+    // add a single action
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Thanks ;-)" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:action];
+    
+    // and display it
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 # pragma mark - Live Photo View Delegate
