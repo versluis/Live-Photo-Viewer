@@ -15,6 +15,7 @@
 		D2284DF71BBCAA73009F8450 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2284DF51BBCAA73009F8450 /* LaunchScreen.storyboard */; };
 		D2284E021BBCAA73009F8450 /* Live_PhotosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D2284E011BBCAA73009F8450 /* Live_PhotosTests.m */; };
 		D2284E0D1BBCAA73009F8450 /* Live_PhotosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D2284E0C1BBCAA73009F8450 /* Live_PhotosUITests.m */; };
+		D265A3A81BCE711E00A0469B /* screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = D265A3A71BCE711E00A0469B /* screenshot.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		D2284E081BBCAA73009F8450 /* Live PhotosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Live PhotosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2284E0C1BBCAA73009F8450 /* Live_PhotosUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Live_PhotosUITests.m; sourceTree = "<group>"; };
 		D2284E0E1BBCAA73009F8450 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D265A3A71BCE711E00A0469B /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = screenshot.png; path = ../screenshot.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		D2284DE71BBCAA73009F8450 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D265A3A71BCE711E00A0469B /* screenshot.png */,
 				D2284DE81BBCAA73009F8450 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -246,6 +249,7 @@
 				D2284DF71BBCAA73009F8450 /* LaunchScreen.storyboard in Resources */,
 				D2284DF41BBCAA73009F8450 /* Assets.xcassets in Resources */,
 				D2284DF21BBCAA73009F8450 /* Main.storyboard in Resources */,
+				D265A3A81BCE711E00A0469B /* screenshot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
